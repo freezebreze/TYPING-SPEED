@@ -23,6 +23,6 @@ const Character = ({char, expect} : {char:string, expect : string}) => {
 }
 
 function cn(classlist : {[key : string] : boolean}) {
-    return Object.entries(classlist).filter(([key, value]) => value).map(([key, value]) => key).join(" ")
+    return Object.entries(classlist).filter(([, value]) => value).map(([key, ]) => key).join(" ")
 }
 export default UserTypings

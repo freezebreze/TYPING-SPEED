@@ -8,7 +8,7 @@ const useTyping = (enabled : boolean) => {
     const totalTyped = useRef<number>(0)
     const typingAudio = useRef<HTMLAudioElement>(null)
     const keydownHandler = ({key, code} : KeyboardEvent) => {
-        typingAudio.current.currentTime = 0
+        typingAudio.current!.currentTime = 0
         typingAudio.current?.play()
         if (!isKeyAllowed(code)) return
         if (!enabled && key !== 'Backspace') return
