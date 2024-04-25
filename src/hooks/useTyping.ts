@@ -22,6 +22,7 @@ const useTyping = (enabled : boolean) => {
                 break
             default:
                 setTyped((prev) => prev.concat(key))
+                setCursor(prev => prev + 1)
                 totalTyped.current += 1
         }
     }

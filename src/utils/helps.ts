@@ -12,8 +12,9 @@ export function calculateError(userInput : string , words : string) {
     }, 0)
 }
 
-export function calculateAccuracy(userInput : string , words : string) {
-    const error = calculateError(userInput, words)
-    const total = userInput.length
-    return ((total - error) / total) * 100
+export function calculateAccuracy(total : number , error : number) {
+    if (total > 0) {
+        return ((total - error) / total) * 100
+    }
+    return 0
 }

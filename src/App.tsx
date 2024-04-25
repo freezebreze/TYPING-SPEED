@@ -6,8 +6,9 @@ import UserTypings from './components/UserTypings';
 
 import useEngine from './hooks/useEngine';
 import ToggleDark from './components/ToggleDark';
+import { calculateAccuracy } from './utils/helps';
 function App() {
-  const {words, resetTyping, state, timeLeft, typed, totalTyped,errors, accuracy, typingAudio }= useEngine()
+  const {words, resetTyping, state, timeLeft, typed, totalTyped,errors,  typingAudio }= useEngine()
   return (
     <>
     <ToggleDark></ToggleDark>
@@ -17,7 +18,7 @@ function App() {
     <UserTypings className='absolute top-0 left-0' words = {words} userInput={typed} />
     </WordsContainer>
     <RestButton className='mx-auto mt-8 text-slate-500' onRest={resetTyping}></RestButton>
-    <Results state = {state} error={errors} accuracyPercentage={accuracy} total={totalTyped} className='mt-10 '></Results>
+    <Results state = {state} error={errors} accuracyPercentage={calculateAccuracy(totalTyped, errors)} total={totalTyped} className='mt-10 '></Results>
     <audio ref={typingAudio} src="../src/assets/mp3/spacebar-click-keyboard-199448.mp3"></audio>
     </>
   )
